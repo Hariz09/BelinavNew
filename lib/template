@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const Profile());
+}
+
+class Profile extends StatelessWidget {
+  const Profile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+          title: const Text("Belinav"),
+        ),
+        body: const SingleChildScrollView(
+          child: ProfileContent(),
+        ),
+      ),
+    );
+  }
+}
+
+class ProfileContent extends StatelessWidget {
+  const ProfileContent({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    return Container(
+      height: screenHeight,
+      width: screenWidth,
+      decoration: const BoxDecoration(
+        gradient: RadialGradient(
+          colors: [
+            Colors.white,
+            Colors.lightBlue,
+          ],
+          center: Alignment.center,
+          radius: 1, // Adjust the radius as needed
+        ),
+      ),
+    );
+  }
+}
